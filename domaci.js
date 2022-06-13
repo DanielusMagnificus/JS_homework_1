@@ -441,7 +441,6 @@ const podaci = [
   ];
   
 
-
 function showMovies() {
 
   document.getElementById("main").innerHTML = "";
@@ -456,10 +455,13 @@ function showMovies() {
       displayMovie(element);
 
     }
-  }); 
+  });
+
 }
 
+
 function displayMovie(element) {
+
   const el = document.createElement('div');
   const flex = document.createElement('div');
   const showImage = document.createElement('img');
@@ -496,6 +498,7 @@ function displayMovie(element) {
   el.appendChild(flex);
 
   document.getElementById("main").appendChild(el);
+
 }
 
 
