@@ -475,6 +475,7 @@ function displayMovie(element) {
   const showRuntime = document.createElement('p');
   const showLink = document.createElement('a');
   const showLanguage = document.createElement('p');
+  const showGenre = document.createElement('p');
 
   showName.innerHTML = element.show.name;
   showImage.src = element.show.image != null ? element.show.image.medium : "";
@@ -485,6 +486,7 @@ function displayMovie(element) {
   showLink.href = element.show.officialSite;
   showLink.innerHTML = "OFFICIAL SITE";
   showLanguage.innerHTML = element.show.language;
+  showGenre.innerHTML = element.show.genres.toString();
 
   el.style.display = "flex";
   showImage.style.margin = "16px";
@@ -496,6 +498,7 @@ function displayMovie(element) {
   flex.appendChild(showRuntime);
   flex.appendChild(showLink);
   flex.appendChild(showLanguage);
+  flex.appendChild(showGenre);
 
   el.appendChild(showImage);
   el.appendChild(flex);
