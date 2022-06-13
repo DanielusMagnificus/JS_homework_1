@@ -444,58 +444,58 @@ const podaci = [
 
 function showMovies() {
 
-    const main = document.getElementById("main");
-    document.getElementById("main").innerHTML = "";
+  document.getElementById("main").innerHTML = "";
 
-    movieDuration = document.getElementById("movieDuration").value;
-    movieRating = document.getElementById("movieRating").value;
+  movieDuration = document.getElementById("movieDuration").value;
+  movieRating = document.getElementById("movieRating").value;
 
-    podaci.forEach(element => {
+  podaci.forEach(element => {
 
-      if (languageOptions.value == element.show.language && movieDuration < element.show.runtime && movieRating < element.show.rating.average) {
-        
-        const el = document.createElement('div');
-        const flex = document.createElement('div');
-        const showImage = document.createElement('img');
-        const showName = document.createElement('h2');
-        const showDescription = document.createElement('p');
-        const showRating = document.createElement('p');
-        const showStatus = document.createElement('p');
-        const showRuntime = document.createElement('p');
-        const showLink = document.createElement('a');
-        const showLanguage = document.createElement('p');
+    if (languageOptions.value == element.show.language && movieDuration < element.show.runtime && movieRating < element.show.rating.average) {
 
-        showName.innerHTML = element.show.name;
-        showImage.src = element.show.image.medium;
-        showDescription.innerHTML = element.show.summary;
-        showRating.innerHTML = "rating: " + element.show.rating.average;
-        showStatus.innerHTML = "status: " +element.show.status;
-        showRuntime.innerHTML = "runtime: " + element.show.runtime + " minutes";
-        showLink.href = element.show.officialSite;
-        showLink.innerHTML = "OFFICIAL SITE";
-        showLanguage.innerHTML = element.show.language;
+      displayMovie(element);
 
-        el.style.display = "flex";
-        showImage.style.margin = "16px";
+    }
+  }); 
+}
 
-        flex.appendChild(showName);
-        flex.appendChild(showDescription);
-        flex.appendChild(showRating);
-        flex.appendChild(showStatus);
-        flex.appendChild(showRuntime);
-        flex.appendChild(showLink);
-        flex.appendChild(showLanguage);
+function displayMovie(element) {
+  const el = document.createElement('div');
+  const flex = document.createElement('div');
+  const showImage = document.createElement('img');
+  const showName = document.createElement('h2');
+  const showDescription = document.createElement('p');
+  const showRating = document.createElement('p');
+  const showStatus = document.createElement('p');
+  const showRuntime = document.createElement('p');
+  const showLink = document.createElement('a');
+  const showLanguage = document.createElement('p');
 
-        el.appendChild(showImage);
-        el.appendChild(flex);
+  showName.innerHTML = element.show.name;
+  showImage.src = element.show.image.medium;
+  showDescription.innerHTML = element.show.summary;
+  showRating.innerHTML = "rating: " + element.show.rating.average;
+  showStatus.innerHTML = "status: " +element.show.status;
+  showRuntime.innerHTML = "runtime: " + element.show.runtime + " minutes";
+  showLink.href = element.show.officialSite;
+  showLink.innerHTML = "OFFICIAL SITE";
+  showLanguage.innerHTML = element.show.language;
 
-        main.appendChild(el);
-          
-        }
+  el.style.display = "flex";
+  showImage.style.margin = "16px";
 
-        
-    }); 
+  flex.appendChild(showName);
+  flex.appendChild(showDescription);
+  flex.appendChild(showRating);
+  flex.appendChild(showStatus);
+  flex.appendChild(showRuntime);
+  flex.appendChild(showLink);
+  flex.appendChild(showLanguage);
 
+  el.appendChild(showImage);
+  el.appendChild(flex);
+
+  document.getElementById("main").appendChild(el);
 }
 
 
