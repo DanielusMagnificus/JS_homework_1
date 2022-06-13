@@ -452,9 +452,7 @@ function showMovies() {
   podaci.forEach(element => {
 
     if (languageOptions.value == element.show.language && movieDuration < element.show.runtime && movieRating < element.show.rating.average && filters.checked) {
-
       displayMovie(element);
-
     }
 
     else if (filters.checked == false) {
