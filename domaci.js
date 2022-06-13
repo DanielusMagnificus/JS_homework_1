@@ -447,13 +447,18 @@ function showMovies() {
 
   movieDuration = document.getElementById("movieDuration").value;
   movieRating = document.getElementById("movieRating").value;
+  filters = document.getElementById("filters");
 
   podaci.forEach(element => {
 
-    if (languageOptions.value == element.show.language && movieDuration < element.show.runtime && movieRating < element.show.rating.average) {
+    if (languageOptions.value == element.show.language && movieDuration < element.show.runtime && movieRating < element.show.rating.average && filters.checked) {
 
       displayMovie(element);
 
+    }
+
+    else if (filters.checked == false) {
+      displayMovie(element);
     }
   });
 
@@ -474,7 +479,7 @@ function displayMovie(element) {
   const showLanguage = document.createElement('p');
 
   showName.innerHTML = element.show.name;
-  showImage.src = element.show.image.medium;
+  showImage.src = element.show.image != null ? element.show.image.medium : "";
   showDescription.innerHTML = element.show.summary;
   showRating.innerHTML = "rating: " + element.show.rating.average;
   showStatus.innerHTML = "status: " +element.show.status;
