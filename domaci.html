@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
-    <link rel="stylesheet" href="style.css">
     <script src="domaci.js" defer></script>
 </head>
 <body>
-    <main id="main"></main>
+    <select id="languageOptions">
+        <option name="language1" value="English">English</option>
+        <option name="language2" value="Mongolian">Mongolian</option>
+    </select>
+
+    <label for="movieDuration">Min. Duration:</label>
+    <input type="number" id="movieDuration" style="width:50px;">
+
+    <label for="movieRating">Min. Duration:</label>
+    <input type="number" id="movieRating" style="width:50px;">
+
     <button onclick="showMovies()">Show Movies</button>
+
+
+    <main id="main"></main>
 </body>
 </html>

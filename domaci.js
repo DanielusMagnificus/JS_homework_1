@@ -445,8 +445,15 @@ const podaci = [
 function showMovies() {
 
     const main = document.getElementById("main");
+    document.getElementById("main").innerHTML = "";
+
+    movieDuration = document.getElementById("movieDuration").value;
+    movieRating = document.getElementById("movieRating").value;
 
     podaci.forEach(element => {
+
+      if (languageOptions.value == element.show.language && movieDuration < element.show.runtime && movieRating < element.show.rating.average) {
+        
         const el = document.createElement('div');
         const flex = document.createElement('div');
         const showImage = document.createElement('img');
@@ -456,8 +463,9 @@ function showMovies() {
         const showStatus = document.createElement('p');
         const showRuntime = document.createElement('p');
         const showLink = document.createElement('a');
+        const showLanguage = document.createElement('p');
 
-        showName.innerHTML = `${element.show.name}`;
+        showName.innerHTML = element.show.name;
         showImage.src = element.show.image.medium;
         showDescription.innerHTML = element.show.summary;
         showRating.innerHTML = "rating: " + element.show.rating.average;
@@ -465,6 +473,7 @@ function showMovies() {
         showRuntime.innerHTML = "runtime: " + element.show.runtime + " minutes";
         showLink.href = element.show.officialSite;
         showLink.innerHTML = "OFFICIAL SITE";
+        showLanguage.innerHTML = element.show.language;
 
         el.style.display = "flex";
         showImage.style.margin = "16px";
@@ -475,11 +484,16 @@ function showMovies() {
         flex.appendChild(showStatus);
         flex.appendChild(showRuntime);
         flex.appendChild(showLink);
+        flex.appendChild(showLanguage);
 
         el.appendChild(showImage);
         el.appendChild(flex);
 
         main.appendChild(el);
+          
+        }
+
+        
     }); 
 
 }
